@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramjet vs Scramjet: Understanding the Differences</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ramjet vs Scramjet: Understanding the Differences</h1>
+
+        <p>Ramjets and Scramjets are two types of air-breathing jet engines designed for high-speed flight. While they share some similarities, they operate under different conditions and have distinct characteristics. This article explores the differences between Ramjets and Scramjets, their operational ranges, and the concept of dual-mode systems.</p>
+
+        <h2>Operational Ranges</h2>
+        <ul>
+            <li><strong>Ramjet</strong>: Effective from Mach 2.5 to Mach 5</li>
+            <li><strong>Scramjet</strong>: Operates at Mach 5 and above</li>
+        </ul>
+        <p>There is a small overlap in their operational ranges, but each engine type is optimized for its specific speed regime.</p>
+
+        <h2>Basic Principles</h2>
+        <p>Both Ramjets and Scramjets lack turbomachinery or rotating parts, relying instead on their geometry and the high-speed airflow for compression. The key difference lies in how they handle airflow before combustion.</p>
+
+        <h3>Ramjet Operation (Mach 2.5 - 5)</h3>
+        <ol>
+            <li><strong>Inlet Compression</strong>: The supersonic airflow is compressed through oblique shocks created by the inlet geometry.</li>
+            <li><strong>Normal Shock</strong>: A normal shock wave forms, decelerating the flow to subsonic speeds.</li>
+            <li><strong>Subsonic Combustion</strong>: Fuel is injected and burned in the combustion chamber at subsonic speeds (typically around Mach 0.3).</li>
+            <li><strong>Exhaust</strong>: Hot gases accelerate through a converging-diverging nozzle, producing thrust.</li>
+        </ol>
+
+        <h3>Advantages of Ramjets:</h3>
+        <ul>
+            <li>Higher efficiency due to subsonic combustion</li>
+            <li>Better fuel-air mixing and longer combustion time</li>
+        </ul>
+
+        <img src="../images/posts/ramjet.png" alt="Paris" class="center">
+        <figcaption><center>Fig 1. Ramjet Schematic</center></figcaption>
+
+        <h3>Scramjet Operation (Mach 5+)</h3>
+        <ol>
+            <li><strong>Inlet Compression</strong>: Similar to Ramjets, but designed for higher Mach numbers.</li>
+            <li><strong>Supersonic Combustion</strong>: Airflow remains supersonic throughout the engine. Fuel is injected and burned at supersonic speeds.</li>
+            <li><strong>Exhaust</strong>: Hot gases exit through a diverging nozzle section.</li>
+        </ol>
+
+        <p>Challenges of Scramjets:</p>
+        <ul>
+            <li>Achieving efficient fuel-air mixing at supersonic speeds</li>
+            <li>Maintaining stable combustion in a very short timeframe</li>
+        </ul>
+
+        <h2>Why Transition to Scramjets?</h2>
+        <p>At Mach 5 and above, the efficiency of Ramjets drops dramatically. The total pressure loss across a normal shock wave at these speeds exceeds 90%, severely reducing engine performance. Scramjets avoid this issue by maintaining supersonic flow throughout the engine.</p>
+
+        <img src="../images/posts/scramjet.png" alt="Paris" class="center">
+        <figcaption><center>Fig 1. SCRamjet (Supersonic Combustion Ramjet) Schematic</center></figcaption>
+
+        <h2>Dual-Mode Scramjet Systems</h2>
+        <p>To bridge the gap between Ramjets and Scramjets, engineers have developed dual-mode systems. These engines can operate as a Ramjet at lower speeds (up to Mach 4-5) and transition to Scramjet mode at higher speeds.</p>
+
+        <h3>Key features of dual-mode systems:</h3>
+        <ol>
+            <li><strong>Isolator</strong>: A section between the inlet and combustor that accommodates shock trains.</li>
+            <li><strong>Variable Geometry</strong>: Adjustable inlet and nozzle configurations to optimize performance across a wide speed range.</li>
+            <li><strong>Thermal Throat</strong>: In Ramjet mode, heat addition in the combustor creates a "thermal throat" where the flow reaches Mach 1, mimicking the physical throat of a traditional Ramjet.</li>
+        </ol>
+
+        <p>As the vehicle accelerates beyond Mach 5, the engine naturally transitions to Scramjet mode. The shock train in the isolator changes from normal shocks to oblique shocks, and the flow remains supersonic throughout the engine.</p>
+
+        <h2>Conclusion</h2>
+        <p>The choice between Ramjet and Scramjet engines depends on the intended flight regime. Ramjets excel in the high supersonic range, while Scramjets are necessary for hypersonic flight. Dual-mode systems offer a promising solution for vehicles that need to operate across a wide range of speeds, from high supersonic to hypersonic regimes.</p>
+    </div>
+</body>
+</html>
