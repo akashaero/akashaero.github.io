@@ -13,6 +13,76 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.loading-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-animation::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--link-color);
+    animation: sphere-explosion 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+body.loaded .loading-animation {
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.loaded .content {
+    opacity: 1;
+    transform: scale(1.0);
+}
+
+@keyframes sphere-explosion {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+    100% {
+        width: 300vmax;
+        height: 300vmax;
+    }
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
 }
 
 .container {
@@ -85,13 +155,12 @@ li {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 0 5px;
     transition: background-color 0.3s;
 }
 
 .switch-thumb {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     background-color: white;
     border-radius: 50%;
     display: flex;
@@ -113,7 +182,20 @@ li {
 }
 
 .dark-mode .switch-thumb {
-    transform: translateX(30px);
+    transform: translateX(35px);
+    background-color: #333;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 @media (max-width: 600px) {

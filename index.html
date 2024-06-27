@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Patel - Portfolio</title>
+    <title>Akash Patel</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <div class="loading-animation"></div>
     <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo"><b>akashaero</b></div>
+            </div>
+        </header>
         <h1>Hi! I am Akash Patel.</h1>
         <p>
             I am an Aerospace engineer with experience working in aerospace, defense, and renewable energy industries. My research interests and work involves numerical analysis, simulation-driven product optimization, and physics-based machine learning.
@@ -59,6 +65,12 @@
         </ul>
     </div>
 
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Akash Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
     <div class="dark-mode-switch" onclick="toggleDarkMode()">
         <div class="switch-thumb">☀️</div>
     </div>
@@ -73,6 +85,10 @@
                 switchThumb.textContent = '☀️';
             }
         }
+
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 </html>

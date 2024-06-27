@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo"><b>akashaero</b></div>
+            </div>
+        </header>
         <h1>Supersonic Inlets for Turbofan Engines</h1>
 
         <p>Turbofan engines are primarily designed for subsonic aircraft. However, when used in supersonic aircraft, they require a specialized inlet system to manage the high-speed airflow. This is because compressors in turbofan engines cannot handle supersonic flow directly - it would cause them to stall due to shock waves and excessive back pressure.</p>
@@ -45,5 +50,27 @@
         <h2>Inlet Unstart</h2>
         <p>If the normal shock moves ahead of the throat, it can cause an "unstart" condition. This reduces the inlet's efficiency and increases air spillage, potentially leading to engine performance issues.</p>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Akash Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="dark-mode-switch" onclick="toggleDarkMode()">
+        <div class="switch-thumb">☀️</div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const switchThumb = document.querySelector('.switch-thumb');
+            if (document.body.classList.contains('dark-mode')) {
+                switchThumb.textContent = '🌙';
+            } else {
+                switchThumb.textContent = '☀️';
+            }
+        }
+    </script>
 </body>
 </html>

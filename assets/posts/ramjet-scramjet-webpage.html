@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo"><b>akashaero</b></div>
+            </div>
+        </header>
         <h1>Ramjet vs Scramjet: Understanding the Differences</h1>
 
         <p>Ramjets and Scramjets are two types of air-breathing jet engines designed for high-speed flight. While they share some similarities, they operate under different conditions and have distinct characteristics. This article explores the differences between Ramjets and Scramjets, their operational ranges, and the concept of dual-mode systems.</p>
@@ -73,5 +78,27 @@
         <h2>Conclusion</h2>
         <p>The choice between Ramjet and Scramjet engines depends on the intended flight regime. Ramjets excel in the high supersonic range, while Scramjets are necessary for hypersonic flight. Dual-mode systems offer a promising solution for vehicles that need to operate across a wide range of speeds, from high supersonic to hypersonic regimes.</p>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Akash Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="dark-mode-switch" onclick="toggleDarkMode()">
+        <div class="switch-thumb">☀️</div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const switchThumb = document.querySelector('.switch-thumb');
+            if (document.body.classList.contains('dark-mode')) {
+                switchThumb.textContent = '🌙';
+            } else {
+                switchThumb.textContent = '☀️';
+            }
+        }
+    </script>
 </body>
 </html>
