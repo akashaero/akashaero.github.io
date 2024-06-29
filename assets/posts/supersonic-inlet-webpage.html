@@ -70,10 +70,27 @@
             const switchThumb = document.querySelector('.switch-thumb');
             if (document.body.classList.contains('dark-mode')) {
                 switchThumb.textContent = '🌙';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                switchThumb.textContent = '☀️';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        function loadDarkMode() {
+            const darkMode = localStorage.getItem('darkMode');
+            const switchThumb = document.querySelector('.switch-thumb');
+            
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                switchThumb.textContent = '🌙';
             } else {
                 switchThumb.textContent = '☀️';
             }
         }
+
+        // Load the saved dark mode state when the page loads
+        document.addEventListener('DOMContentLoaded', loadDarkMode);
     </script>
 </body>
 </html>
