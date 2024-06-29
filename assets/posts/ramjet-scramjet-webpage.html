@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramjet vs Scramjet: Understanding the Differences</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <script>
-        // Immediately invoke this function to set the initial mode
-        (function() {
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();
-    </script>
 </head>
 <body>
     <div class="container">
@@ -112,19 +104,6 @@
                 localStorage.setItem('darkMode', 'disabled');
             }
         }
-
-        // Update switch thumb on page load
-        function updateSwitchThumb() {
-            const switchThumb = document.querySelector('.switch-thumb');
-            if (document.documentElement.classList.contains('dark-mode')) {
-                switchThumb.textContent = '🌙';
-            } else {
-                switchThumb.textContent = '☀️';
-            }
-        }
-
-        // Load the saved dark mode state when the page loads
-        document.addEventListener('DOMContentLoaded', updateSwitchThumb);
     </script>
 </body>
 </html>
