@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supersonic Inlets for Turbofan Engines</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <script>
+        // Immediately invoke this function to set the initial mode
+        (function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -77,12 +85,10 @@
             }
         }
 
-        function loadDarkMode() {
-            const darkMode = localStorage.getItem('darkMode');
+        // Update switch thumb on page load
+        function updateSwitchThumb() {
             const switchThumb = document.querySelector('.switch-thumb');
-            
-            if (darkMode === 'enabled') {
-                document.body.classList.add('dark-mode');
+            if (document.documentElement.classList.contains('dark-mode')) {
                 switchThumb.textContent = '🌙';
             } else {
                 switchThumb.textContent = '☀️';
@@ -90,7 +96,7 @@
         }
 
         // Load the saved dark mode state when the page loads
-        document.addEventListener('DOMContentLoaded', loadDarkMode);
+        document.addEventListener('DOMContentLoaded', updateSwitchThumb);
     </script>
 </body>
 </html>
