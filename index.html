@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akash Patel</title>
+    <script>
+        (function() {
+            const darkModePreference = localStorage.getItem('darkMode');
+            const body = document.documentElement;
+            if (darkModePreference === 'enabled') {
+                body.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -93,19 +102,17 @@
             }
         }
 
-        function setInitialMode() {
+        function setInitialText() {
             const darkModePreference = localStorage.getItem('darkMode');
             if (darkModePreference === 'enabled') {
-                document.body.classList.add('dark-mode');
                 document.querySelector('.switch-thumb').textContent = '🌙';
             } else {
-                document.body.classList.remove('dark-mode');
                 document.querySelector('.switch-thumb').textContent = '☀️';
             }
         }
 
-        // Call setInitialMode when the page loads
-        document.addEventListener('DOMContentLoaded', setInitialMode);
+        // Call setInitialText when the page loads
+        document.addEventListener('DOMContentLoaded', setInitialText);
     </script>
 </body>
 </html>
