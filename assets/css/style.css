@@ -177,3 +177,19 @@ footer {
     margin-right: auto;
     width: 80%;
 }
+
+/* Show light mode image by default */
+.github-link .light-mode-img {
+    display: inline-block;
+}
+.github-link .dark-mode-img {
+    display: none;
+}
+
+/* Switch images when dark mode is active */
+.dark-mode .github-link .light-mode-img {
+    display: none;
+}
+.dark-mode .github-link .dark-mode-img {
+    display: inline-block;
+}
