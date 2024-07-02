@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supersonic Inlets for Turbofan Engines</title>
+    <script>
+        (function() {
+            const darkModePreference = localStorage.getItem('darkMode');
+            const body = document.documentElement;
+            if (darkModePreference === 'enabled') {
+                body.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://akashaero.github.io">
+                <div class="header-content">
+                    <div class="logo"><b>akashaero</b></div>
+                </div>
+            </a>
+        </header>
+
+        <!--LIST OF ALL POSTS. LINKED TO "See More..." TEXT FROM MAIN PAGE-->
+        <!-- <h1>Post Title</h1>
+        <p_date>Date Year</p_date> -->
+        <!-- <p>Paragraph</p>
+
+        <h2>Header 2</h2>
+        <ol>
+            <li><strong>List Item 1</li>
+            <li><strong>List </strong> Item 2</li>
+        </ol>
+
+        <img src="img.ong" alt="image" class="center">
+
+        <ul>
+            <li><strong>List</strong> Item 1</li>
+        </ul>-->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Akash Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="dark-mode-switch" onclick="toggleDarkMode()">
+        <div class="switch-thumb">☀️</div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.documentElement;
+            const switchThumb = document.querySelector('.switch-thumb');
+            const isDarkMode = body.classList.contains('dark-mode');
+
+            if (isDarkMode) {
+                body.classList.remove('dark-mode');
+                switchThumb.textContent = '☀️';
+                localStorage.setItem('darkMode', 'disabled');
+            } else {
+                body.classList.add('dark-mode');
+                switchThumb.textContent = '🌙';
+                localStorage.setItem('darkMode', 'enabled');
+            }
+        }
+
+        function setInitialText() {
+            const darkModePreference = localStorage.getItem('darkMode');
+            if (darkModePreference === 'enabled') {
+                document.querySelector('.switch-thumb').textContent = '🌙';
+            } else {
+                document.querySelector('.switch-thumb').textContent = '☀️';
+            }
+        }
+
+        // Call setInitialText when the page loads
+        document.addEventListener('DOMContentLoaded', setInitialText);
+    </script>
+</body>
+</html>
