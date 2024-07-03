@@ -28,42 +28,73 @@
         <p_date>Jan 2021</p_date>
 
         <p>
-            
+            <i>* This post shows some of the research I presented in AIAA <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2021-1239" target="_blank">SciTech 2021</a> and <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2022-0974" target="_blank">SciTech 2022</a>.</i>
         </p>
-        <!-- <p>Turbofan engines are primarily designed for subsonic aircraft. However, when used in supersonic aircraft, they require a specialized inlet system to manage the high-speed airflow. This is because compressors in turbofan engines cannot handle supersonic flow directly - it would cause them to stall due to shock waves and excessive back pressure.</p>
 
-        <h2>The Role of Supersonic Inlets</h2>
-        <p>Supersonic inlets serve a crucial function: they decelerate the incoming supersonic air to subsonic speeds (typically around Mach 0.5) before it enters the engine compressor. This is achieved through a series of shock waves within the inlet.</p>
+        <p>
+            Computational Fluid Dynamics (CFD) is a powerful tool for simulating and analyzing fluid flows, but it comes with a significant computational cost. One way to optimize this cost is through Adaptive Mesh Refinement (AMR), which dynamically increases mesh resolution in areas of interest while keeping it coarse elsewhere. However, traditional AMR methods often rely on user expertise and problem-specific knowledge. In this article, I will discuss a novel approach for automating the adaptive mesh refinement process using machine learning-based classifiers. I call it Smart AMR.
+        </p>
 
-        <h2>Key Components of a Supersonic Inlet</h2>
+        <h2>What is Smart AMR?</h2>
+
+        <p>
+            Smart AMR combines classical adaptive mesh refinement techniques with machine learning to address some of the known issues in conventional approaches. The key innovation is the use of artificial neural networks (ANNs) and convolutional neural networks (CNNs) to make refinement decisions, reducing the reliance on user-defined criteria and potentially improving the generalizability of the dynamic mesh refinement process. In this post, an ANN classifier is discussed.
+        </p>
+
+        <h2>Feature Extraction for Classifier Training</h2>
+
+        <p>
+            Several normalized quantities such as velocity gradient, Q-criterion, vorticity, and a modified Δ criterion are used to capture flow features across different problems. The ability of such quantities in extracting refinement zones is evident in Figure 1.
+        </p>
+
+        <img src="../images/posts/feat_extract.png" id="Figure1" class="center">
+        <figcaption><center>Figure 1. Feature Extraction Using Normalized Quantities</center></figcaption>
+
+        <h2>Training Data</h2>
+        <p>
+            Features extracted from several instantaneous velocity snapshots of the flow problems shown in Figure 2 were manually analyzed to generate a labeled training dataset where for each cell, a "to refine" or "not to refine" label was generated against 4 normalized (non-dimensional) input quantities. By training on data from multiple flow problems, the generalizability of the trained model can be improved.
+        </p>
+
+        <img src="../images/posts/All_Full_Order_Probs.png" id="Figure2" class="center">
+        <figcaption><center>Figure 2. Training Dataset (Flow over airfoil, T-junction, Pitz-Daily case)</center></figcaption>
+
+        <h2>Artificial Neural Network (ANN) Architecture</h2>
+
+        <p>
+            ANNs work on the universal approximation theorem. Theoretically, ANNs can fit any non-linear data given enough parameters/layers. As shown in Figure 3, the ANN-based classifier has 4 inputs, several hidden layers, and one binary output. Inputs are the selected non-dimensional quantities computed on each cell, and output is the decision of "to refine" or "not to refine" for each cell.
+        </p>
+
+        <img src="../images/posts/NN_Arch.png" id="Figure2" class="center">
+        <figcaption><center>Figure 3. ANN Architecture</center></figcaption>
+        
+        <h2>Promising Results</h2>
+        <p>
+            This Smart AMR approach is tested on a turbofan engine blade simulation which was not part of the training data. The results are encouraging:
+        </p>
+
         <ol>
-            <li><strong>Oblique Shock Generator:</strong> Usually a ramp or cone at the inlet entrance.</li>
-            <li><strong>Throat:</strong> The narrowest part of the inlet duct.</li>
-            <li><strong>Normal Shock Wave:</strong> Occurs after the throat or at the lip in some designs.</li>
-            <li><strong>Subsonic Diffuser:</strong> The expanding section after the normal shock.</li>
+            <li>For the turbofan engine blade case, the classifier is able to correctly identify refinement zones as shown in Figure 4.</li>
+            <li>This ANN-based classifier showed improved generalization, achieving 94% accuracy across different flow problems.</li>
         </ol>
 
-        <img src="../images/posts/supersonic-inlet.png" alt="Paris" class="center">
+        <img src="../images/posts/samr_blade.png" id="Figure2" class="center">
+        <figcaption><center>Figure 4. (Left) Flow snapshot with base mesh. (Right) Flow snapshot with Smart AMR.</center></figcaption>
 
-        <h2>How It Works</h2>
-        <ol>
-            <li><strong>Oblique Shock:</strong> As supersonic air hits the ramp or cone, it creates an oblique shock wave. This initial shock reduces the air speed but keeps it supersonic (e.g., from Mach 2 to Mach 1.65).</li>
-            <li><strong>Throat:</strong> The airflow reaches its maximum at the throat, a phenomenon known as choking. The throat's size is critical in managing the airflow rate.</li>
-            <li><strong>Normal Shock:</strong> A strong shock wave perpendicular to the airflow occurs either at the throat or just after it. This shock reduces the air speed to subsonic levels (e.g., from Mach 1.65 to Mach 0.57).</li>
-            <li><strong>Subsonic Diffuser:</strong> The expanding duct after the normal shock further slows down the air before it enters the compressor.</li>
-        </ol>
+        <h2>Implications and Future Work</h2>
 
-        <h2>Pressure Changes</h2>
-        <ul>
-            <li><strong>Static Pressure:</strong> Increases after each shock wave.</li>
-            <li><strong>Total (Stagnation) Pressure:</strong> Decreases after each shock wave, with a greater loss across the normal shock compared to oblique shocks.</li>
-        </ul>
+        <p>
+            Smart AMR has the potential to significantly improve the efficiency and accessibility of CFD simulations. By reducing the need for expert knowledge in mesh refinement, it could make high-quality CFD analysis more widely available. Additionally, the ability to generalize across similar problems could save substantial time in setting up new simulations.
+        </p>
 
-        <h2>External Compression Inlets</h2>
-        <p>Some supersonic aircraft, like the SR-71 Blackbird, use external compression inlets. In these designs, the normal shock occurs at the lip of the inlet, which acts as the throat.</p>
+        <p>
+            Looking forward, this work can be extended to other physical phenomena beyond fluid dynamics and to three-dimensional cases. More complex network architectures can be explored to improve the robustness and generalizability of Smart AMR.
+        </p>
 
-        <h2>Inlet Unstart</h2>
-        <p>If the normal shock moves ahead of the throat, it can cause an "unstart" condition. This reduces the inlet's efficiency and increases air spillage, potentially leading to engine performance issues.</p> -->
+        <h2>Conclusion</h2>
+
+        <p>
+            Smart Adaptive Mesh Refinement represents a promising step forward in the intersection of machine learning and computational physics. By leveraging the power of neural networks, we can create more efficient, accurate, and user-friendly CFD simulations. As such approaches are widely explored and refined, I look forward to seeing their impact on the field of computational science and engineering.
+        </p>
     </div>
 
     <footer>
