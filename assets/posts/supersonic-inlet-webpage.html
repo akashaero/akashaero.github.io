@@ -41,8 +41,9 @@
             </a>
         </header>
         <h1>Supersonic Inlets for Turbofan Engines</h1>
-        <p_date>Akash Patel</p_date><br>
-        <p_date>December 2017</p_date>
+        <p_date><i><span id="reading-time"></span></i></p_date><br><br>
+        <p_author><strong>Akash Patel</strong></p_author><br>
+        <p_date>December 2017</p_date><br>
 
         <p>Turbofan engines are primarily designed for subsonic aircraft. However, when used in supersonic aircraft, they require a specialized inlet system to manage the high-speed airflow. This is because compressors in turbofan engines cannot handle supersonic flow directly - it would cause them to stall due to shock waves and excessive back pressure.</p>
 
@@ -117,8 +118,27 @@
             }
         }
 
+        // Function to calculate reading time
+        function calculateReadingTime() {
+            // Get the content of the article
+            const content = document.documentElement.innerText;
+            
+            // Count the number of words
+            const wordCount = content.trim().split(/\s+/).length;
+            
+            // Assume average reading speed (words per minute)
+            const wordsPerMinute = 150;
+            
+            // Calculate reading time in minutes
+            const readingTime = Math.ceil(wordCount / wordsPerMinute);
+            
+            // Display the reading time
+            document.getElementById('reading-time').textContent = `${readingTime} min read`;
+        }
+
         // Call setInitialText when the page loads
         document.addEventListener('DOMContentLoaded', setInitialText);
+        window.addEventListener('load', calculateReadingTime);
     </script>
 </body>
 </html>

@@ -41,7 +41,8 @@
             </a>
         </header>
         <h1>Adaptive Mesh Refinement for CFD Using Machine Learning</h1>
-        <p_date>Akash Patel</p_date><br>
+        <p_date><i><span id="reading-time"></span></i></p_date><br><br>
+        <p_author>Akash Patel</p_author><br>
         <p_date>Jan 2021</p_date>
 
         <p>
@@ -150,8 +151,27 @@
             }
         }
 
+        // Function to calculate reading time
+        function calculateReadingTime() {
+            // Get the content of the article
+            const content = document.documentElement.innerText;
+            
+            // Count the number of words
+            const wordCount = content.trim().split(/\s+/).length;
+            
+            // Assume average reading speed (words per minute)
+            const wordsPerMinute = 150;
+            
+            // Calculate reading time in minutes
+            const readingTime = Math.ceil(wordCount / wordsPerMinute);
+            
+            // Display the reading time
+            document.getElementById('reading-time').textContent = `${readingTime} min read`;
+        }
+
         // Call setInitialText when the page loads
         document.addEventListener('DOMContentLoaded', setInitialText);
+        window.addEventListener('load', calculateReadingTime);
     </script>
 </body>
 </html>
