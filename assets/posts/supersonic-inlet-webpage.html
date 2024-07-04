@@ -20,15 +20,7 @@
     <meta name="twitter:image" content="https://akashaero.github.io/assets/images/posts/supersonic-inlet.png">
 
     <title>Supersonic Inlets for Turbofan Engines</title>
-    <script>
-        (function() {
-            const darkModePreference = localStorage.getItem('darkMode');
-            const body = document.documentElement;
-            if (darkModePreference === 'enabled') {
-                body.classList.add('dark-mode');
-            }
-        })();
-    </script>
+    <script src="../js/persist_dm.js"></script>
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -92,53 +84,6 @@
         <div class="switch-thumb">☀️</div>
     </div>
 
-    <script>
-        function toggleDarkMode() {
-            const body = document.documentElement;
-            const switchThumb = document.querySelector('.switch-thumb');
-            const isDarkMode = body.classList.contains('dark-mode');
-
-            if (isDarkMode) {
-                body.classList.remove('dark-mode');
-                switchThumb.textContent = '☀️';
-                localStorage.setItem('darkMode', 'disabled');
-            } else {
-                body.classList.add('dark-mode');
-                switchThumb.textContent = '🌙';
-                localStorage.setItem('darkMode', 'enabled');
-            }
-        }
-
-        function setInitialText() {
-            const darkModePreference = localStorage.getItem('darkMode');
-            if (darkModePreference === 'enabled') {
-                document.querySelector('.switch-thumb').textContent = '🌙';
-            } else {
-                document.querySelector('.switch-thumb').textContent = '☀️';
-            }
-        }
-
-        // Function to calculate reading time
-        function calculateReadingTime() {
-            // Get the content of the article
-            const content = document.documentElement.innerText;
-            
-            // Count the number of words
-            const wordCount = content.trim().split(/\s+/).length;
-            
-            // Assume average reading speed (words per minute)
-            const wordsPerMinute = 150;
-            
-            // Calculate reading time in minutes
-            const readingTime = Math.ceil(wordCount / wordsPerMinute);
-            
-            // Display the reading time
-            document.getElementById('reading-time').textContent = `${readingTime} min read`;
-        }
-
-        // Call setInitialText when the page loads
-        document.addEventListener('DOMContentLoaded', setInitialText);
-        window.addEventListener('load', calculateReadingTime);
-    </script>
+    <script src="../js/scripts.js"></script>
 </body>
 </html>
