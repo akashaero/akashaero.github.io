@@ -6,22 +6,22 @@
 
     <meta property="og:title" content="Adaptive Mesh Refinement for CFD Using Machine Learning">
     <meta property="og:description" content="Generelizable neural network classifiers for mesh refinement predictions on several flow problems">
-    <meta property="og:image" content="https://akashaero.github.io/assets/images/posts/samr_blade.png">
-    <meta property="og:url" content="https://akashaero.github.io/assets/posts/ml-amr-webpage.html">
+    <meta property="og:image" content="https://akashaero.github.io/assets/images/articles/samr_blade.png">
+    <meta property="og:url" content="https://akashaero.github.io/articles/ml-amr-webpage.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="akashaero">
     <meta property="article:author" content="Akash Patel">
-    <meta name="twitter:url" content="https://akashaero.github.io/assets/posts/ml-amr-webpage.html">
+    <meta name="twitter:url" content="https://akashaero.github.io/articles/ml-amr-webpage.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@AkashAero_">
     <meta name="twitter:creator" content="@AkashAero_">
     <meta name="twitter:title" content="Adaptive Mesh Refinement for CFD Using Machine Learning">
     <meta name="twitter:description" content="Generelizable neural network classifiers for mesh refinement predictions on several flow problems">
-    <meta name="twitter:image" content="https://akashaero.github.io/assets/images/posts/samr_blade.png">
+    <meta name="twitter:image" content="https://akashaero.github.io/assets/images/articles/samr_blade.png">
 
     <title>Adaptive Mesh Refinement for CFD Using Machine Learning</title>
-    <script src="../js/persist_dm.js"></script>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../assets/js/persist_dm.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -57,7 +57,7 @@
             Several normalized quantities such as velocity gradient, Q-criterion, vorticity, and a modified Δ criterion are used to capture flow features across different problems. The ability of such quantities in extracting refinement zones is evident in Figure 1.
         </p>
 
-        <img src="../images/posts/feat_extract.png" id="Figure1" class="center">
+        <img src="../assets/images/articles/feat_extract.png" id="Figure1" class="center">
         <figcaption><center>Figure 1. Feature Extraction Using Normalized Quantities</center></figcaption>
 
         <h2>Training Data</h2>
@@ -65,7 +65,7 @@
             Features extracted from several instantaneous velocity snapshots of the flow problems shown in Figure 2 were manually analyzed to generate a labeled training dataset where for each cell, a "to refine" or "not to refine" label was generated against 4 normalized (non-dimensional) input quantities. By training on data from multiple flow problems, the generalizability of the trained model can be improved.
         </p>
 
-        <img src="../images/posts/All_Full_Order_Probs.png" id="Figure2" class="center">
+        <img src="../assets/images/articles/All_Full_Order_Probs.png" id="Figure2" class="center">
         <figcaption><center>Figure 2. Training Dataset (Flow over airfoil, T-junction, Pitz-Daily case)</center></figcaption>
 
         <h2>Artificial Neural Network (ANN) Architecture</h2>
@@ -74,7 +74,7 @@
             ANNs work on the universal approximation theorem. Theoretically, ANNs can fit any non-linear data given enough parameters/layers. As shown in Figure 3, the ANN-based classifier has 4 inputs, several hidden layers, and one binary output. Inputs are the selected non-dimensional quantities computed on each cell, and output is the decision of "to refine" or "not to refine" for each cell.
         </p>
 
-        <img src="../images/posts/NN_Arch.png" id="Figure2" class="center">
+        <img src="../assets/images/articles/NN_Arch.png" id="Figure2" class="center">
         <figcaption><center>Figure 3. ANN Architecture</center></figcaption>
         
         <h2>Promising Results</h2>
@@ -87,7 +87,7 @@
             <li>This ANN-based classifier showed improved generalization, achieving 94% accuracy across different flow problems.</li>
         </ol>
 
-        <img src="../images/posts/samr_blade.png" id="Figure2" class="center">
+        <img src="../assets/images/articles/samr_blade.png" id="Figure2" class="center">
         <figcaption><center>Figure 4. (Left) Flow snapshot with base mesh. (Right) Flow snapshot with Smart AMR.</center></figcaption>
 
         <h2>Implications and Future Work</h2>
@@ -117,6 +117,6 @@
         <div class="switch-thumb">☀️</div>
     </div>
 
-    <script src="../js/scripts.js"></script>
+    <script src="../assets/js/scripts.js"></script>
 </body>
 </html>

@@ -131,7 +131,8 @@ li {
 }
 
 .dark-mode {
-    --bg-color: #333;
+    /* --bg-color: #333; */
+    --bg-color: #000000;
     --text-color: #fafafa;
     --link-color: #66b3ff;
     --hover-color: #99ccff;
@@ -184,7 +185,7 @@ footer {
     width: 80%;
 }
 
-/* Show light mode image by default */
+/* Show light mode Github logo by default */
 .github-link .light-mode-img {
     display: inline-block;
 }
@@ -192,10 +193,27 @@ footer {
     display: none;
 }
 
-/* Switch images when dark mode is active */
+/* Switch dark mode Github logo when dark mode is active */
 .dark-mode .github-link .light-mode-img {
     display: none;
 }
 .dark-mode .github-link .dark-mode-img {
+    display: inline-block;
+}
+
+
+/* Show light mode Twitter logo by default */
+.twitter-link .light-mode-img {
+    display: inline-block;
+}
+.twitter-link .dark-mode-img {
+    display: none;
+}
+
+/* Switch dark mode Twitter logo when dark mode is active */
+.dark-mode .twitter-link .light-mode-img {
+    display: none;
+}
+.dark-mode .twitter-link .dark-mode-img {
     display: inline-block;
 }
